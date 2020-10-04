@@ -1,31 +1,29 @@
+import { findAllByTitle } from '@testing-library/react';
 import React, { Component } from 'react';
 import './bookInfo.css';
-import BookImg from './BookImg/BookImg';
 
-class BookInfo extends Component {
-    render() {
-        return (
-            <div className='BookInfo'>
-                <div className='BookInfo__information'>
-                    <div className='BookInfo__title'>
+export default function BookInfo(props) {
 
-                    </div>
-                    <div className='BookInfo__author'>
-
-                    </div>
-                    <div className='BookInfo__price'>
-
-                    </div>
-                    <div className='BookInfo__description'>
-
-                    </div>
+    return (
+        <div className='BookInfo'>
+            <div className='BookInfo__img'>
+                <img src={props.cover} ></img>
+            </div> 
+            <div className='BookInfo__information'>
+                <div className='BookInfo__title'>
+                    {props.title}
                 </div>
-                <div className='BookInfo__img'>
-                    <BookImg />
-                </div> 
+                <div className='BookInfo__author'>
+                    Author: {props.author}
+                </div>
+                <div className='BookInfo__price'>
+                    Price: ${props.price}
+                </div>
+                <div className='BookInfo__description'>
+                    {props.description}
+                </div>
             </div>
-        )
-    }
+                
+        </div>
+    )
 }
-
-export default BookInfo;
